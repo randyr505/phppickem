@@ -9,7 +9,6 @@ if ($_POST['action'] == 'Submit') {
 	//update summary table
 	$sql = "delete from " . DB_PREFIX . "picksummary where weekNum = " . $_POST['week'] . " and userID = " . $user->userID . ";";
 	$mysqli->query($sql) or die('Error updating picks summary: ' . $mysqli->error);
-	#$sql = "insert into " . DB_PREFIX . "picksummary (weekNum, userID, showPicks) values (" . $_POST['week'] . ", " . $user->userID . ", " . (int)$_POST['showPicks'] . ");";
 	$sql = "insert into " . DB_PREFIX . "picksummary (weekNum, userID, showPicks, tieBreakerPoints) values (" . $_POST['week'] . ", " . $user->userID . ", " . (int)$_POST['showPicks'] . ", " . $_POST['tieBreakerPoints'] . ");";
 	$mysqli->query($sql) or die('Error updating picks summary: ' . $mysqli->error);
 
