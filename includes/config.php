@@ -19,6 +19,8 @@ define('SERVER_TIMEZONE', 'America/Chicago'); // Your SERVER's timezone. NOTE: G
 define('ALWAYS_HIDE_PICKS', true); // Set to true to hide picks until games are locked out
 define('SHOW_TIEBREAKER_POINTS', true); // Set to true to use tiebreaker points, does not affect wins, mainly for bragging rights
 define('DEFAULT_TIEBREAKER_POINTS', 50); // if using tiebreaker points set default value to fill in on entry form
+define('AUTO_UPDATE_SCORES_ENABLED', true);
+define('AUTO_UPDATE_SCORES_KEY', 'yoursecretkey');
 
 // ***DO NOT EDIT ANYTHING BELOW THIS LINE***
 error_reporting(E_ALL ^ E_NOTICE ^ E_STRICT);
