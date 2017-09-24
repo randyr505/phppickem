@@ -22,6 +22,7 @@ define('SHOW_SPREAD', true); // Only display the spreads on the entry form page,
 define('DEFAULT_TIEBREAKER_POINTS', 50); // if using tiebreaker points set default value to fill in on entry form
 define('AUTO_UPDATE_SCORES_ENABLED', true);
 define('AUTO_UPDATE_SCORES_KEY', 'yoursecretkey');
+define('ALT_CUTOFF_SUNDAY', 13); // use 00-13 so early Sunday games don't lock too early, i.e set = 13 for cutoff at 13:00 Eastern.
 
 // ***DO NOT EDIT ANYTHING BELOW THIS LINE***
 error_reporting(E_ALL ^ E_NOTICE ^ E_STRICT);

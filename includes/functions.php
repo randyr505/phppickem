@@ -24,7 +24,7 @@ function getCurrentWeek() {
 function getCutoffDateTime($week) {
 	//get the cutoff date for a given week
 	global $mysqli;
-	$sql = "select gameTimeEastern from " . DB_PREFIX . "schedule where weekNum = " . $week . " and DATE_FORMAT(gameTimeEastern, '%W') = 'Sunday' order by gameTimeEastern limit 1;";
+	$sql = "select gameTimeEastern from " . DB_PREFIX . "schedule where weekNum = " . $week . " and DATE_FORMAT(gameTimeEastern, '%W') = 'Sunday' and DATE_FORMAT(gameTimeEastern, '%H') >= " . ALT_CUTOFF_SUNDAY . " order by gameTimeEastern limit 1;";
 	$query = $mysqli->query($sql);
 	if ($query->num_rows > 0) {
 		$row = $query->fetch_assoc();
