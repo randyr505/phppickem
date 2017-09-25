@@ -8,6 +8,12 @@ PHP Pick 'Em is a free php web application that allows you to host a weekly NFL 
 * MySQL version 5.0 or greater with mysqli enabled
 * Mcrypt module for password encryption
 
+## Added by this fork (randyr505/phppickem)
+
+Display Point Spreads (not used for figuring winner)
+Monday night tiebreaker (doesn't auto determine winner or update wins, just keeps track of tiebreaker points)
+Alternate Sunday Cutoff (Allows cutoff to be at noon instead of early morning games on Sunday, i.e London games)
+Bug fixes: Current time display, Records display fix for newer mysql version, updated teams & helmets, etc.
 
 ## Installation Instructions
 
