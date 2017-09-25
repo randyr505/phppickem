@@ -56,7 +56,12 @@ while ($row = $query->fetch_assoc()) {
 }
 $query->close();
 
-//get array of player picks
+//get array of player TieBreakers
+$sql2 = "select userID, tieBreakerPoints from " . DB_PREFIX . "picksummary ";
+$sql2 .= "where weekNum = " . $week . " order by userID";
+$query2 = $mysqli->query($sql2);
+while ($row = $query2->fetch_assoc()) { $playerBreaker[$row['userID']] = $row['tieBreakerPoints']; }
+
 $playerPicks = array();
 $playerTotals = array();
 $sql = "select p.userID, p.gameID, p.pickID, p.points ";
@@ -113,7 +118,7 @@ if (sizeof($playerTotals) > 0) {
 <div class="table-responsive">
 <table class="table table-striped">
 	<thead>
-		<tr><th align="left">Player</th><th colspan="<?php echo sizeof($games); ?>">Week <?php echo $week; ?></th><th align="left">Score</th></tr>
+		<tr><th align="left">Player</th><th colspan="<?php echo sizeof($games); ?>">Week <?php echo $week; ?></th><th align="center">Tie Breaker</th><th align="left">Score</th></tr>
 	</thead>
 	<tbody>
 <?php
@@ -160,6 +165,7 @@ if (sizeof($playerTotals) > 0) {
 			}
 			echo '		<td class="pickTD">' . $pick . '</td>' . "\n";
 		}
+                if ( $weekExpired ) { $breaker = $playerBreaker[$userID]; echo '<td align=center>' . $breaker . '</td>' . "\n"; }
 		echo '		<td nowrap><b>' . $totalCorrect . '/' . sizeof($games) . ' (' . number_format(($totalCorrect / sizeof($games)) * 100, 2) . '%)</b></td>' . "\n";
 		echo '	</tr>' . "\n";
 		$i++;
