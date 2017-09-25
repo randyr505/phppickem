@@ -239,7 +239,7 @@ include('includes/column_right.php');
 			echo '					<div class="row bg-row3">'."\n";
 			echo '						<div class="col-xs-6 center">'."\n";
 			echo '							<div class="team">' . $visitorTeam->city . ' ' . $visitorTeam->team . $awaySpreadStr . '</div>'."\n";
-			$teamRecord = trim(getTeamRecord($visitorTeam->teamID));
+			$teamRecord = trim(getTeamRecord($visitorTeam->teamID,$week));
 			if (!empty($teamRecord)) {
 				echo '							<div class="record">Record: ' . $teamRecord . '</div>'."\n";
 			}
@@ -250,7 +250,7 @@ include('includes/column_right.php');
 			echo '						</div>'."\n";
 			echo '						<div class="col-xs-6 center">' . "\n";
 			echo '							<div class="team">' . $homeTeam->city . ' ' . $homeTeam->team . $homeSpreadStr . '</div>'."\n";
-			$teamRecord = trim(getTeamRecord($homeTeam->teamID));
+			$teamRecord = trim(getTeamRecord($homeTeam->teamID,$week));
 			if (!empty($teamRecord)) {
 				echo '							<div class="record">Record: ' . $teamRecord . '</div>'."\n";
 			}
